@@ -16,13 +16,14 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    //public because we want to be able to call this from the EnemyAttack script
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
-            enabled = false;
-            gameOverScreen.SetActive(true);
+            this.enabled = false; //Disable the script, so we can't keep taking damage after we die
+            gameOverScreen.SetActive(true); //Show the game over screen
         }
         else
         {

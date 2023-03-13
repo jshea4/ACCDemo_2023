@@ -15,12 +15,13 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    //public because we want to be able to call this from the PlayerAttack script
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            Destroy(gameObject); //Destroy the enemy
         }
         else
         {
